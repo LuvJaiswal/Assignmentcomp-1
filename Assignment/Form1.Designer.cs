@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -51,8 +52,7 @@
             this.guidelinesAreAsBelowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -62,7 +62,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel2.Controls.Add(this.richTextBox1);
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button5);
@@ -81,10 +81,19 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(541, 78);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1491, 1406);
+            this.panel3.TabIndex = 12;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(36, 707);
+            this.pictureBox1.Location = new System.Drawing.Point(42, 604);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(421, 936);
             this.pictureBox1.TabIndex = 11;
@@ -116,7 +125,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(304, 620);
+            this.button3.Location = new System.Drawing.Point(273, 505);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(184, 81);
             this.button3.TabIndex = 8;
@@ -127,18 +136,19 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(42, 620);
+            this.button2.Location = new System.Drawing.Point(25, 505);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(213, 81);
             this.button2.TabIndex = 7;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(184, 523);
+            this.button1.Location = new System.Drawing.Point(178, 397);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 81);
             this.button1.TabIndex = 6;
@@ -159,10 +169,10 @@
             // 
             // command
             // 
-            this.command.Location = new System.Drawing.Point(24, 314);
+            this.command.Location = new System.Drawing.Point(2064, 78);
             this.command.Multiline = true;
             this.command.Name = "command";
-            this.command.Size = new System.Drawing.Size(464, 203);
+            this.command.Size = new System.Drawing.Size(752, 574);
             this.command.TabIndex = 4;
             this.command.TextChanged += new System.EventHandler(this.command_TextChanged);
             // 
@@ -189,7 +199,6 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -197,7 +206,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2862, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(2862, 60);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -271,22 +280,13 @@
             this.panel1.Size = new System.Drawing.Size(2862, 56);
             this.panel1.TabIndex = 0;
             // 
-            // panel3
+            // textBox1
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(541, 78);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1491, 1406);
-            this.panel3.TabIndex = 12;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.richTextBox1.Location = new System.Drawing.Point(2052, 78);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(798, 574);
-            this.richTextBox1.TabIndex = 13;
-            this.richTextBox1.Text = "";
+            this.textBox1.Location = new System.Drawing.Point(12, 329);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(508, 38);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
@@ -335,8 +335,8 @@
         private System.Windows.Forms.Button button4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
